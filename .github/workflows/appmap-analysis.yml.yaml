@@ -2,6 +2,11 @@ name: appmap-analysis
 
 on:
   pull_request:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 0 * * 0'
 
 jobs:
   test:
@@ -35,10 +40,13 @@ jobs:
       - name: Run tests
         run: pytest
 
-      - name: Archive AppMaps
-        uses: getappmap/archive-action@v1
+      - name: Save AppMaps
+        uses: actions/cache/save@v3
+        if: always()
         with:
-          revision: ${{ github.event.pull_request.base.sha }}
+          path: ${{ steps.install-appmap.outputs.appmap-dir }}
+          key: appmaps-${{ github.sha }}-${{ github.run_attempt }}
+
   deploy:
     runs-on: ubuntu-latest
     needs: test
@@ -47,3 +55,13 @@ jobs:
       - name: Deploy
         run: |
           echo "Deployed successfully!"
+
+  appmap-analysis:
+    if: always()
+    needs: [test] # You may need to change this to match the name of the step that runs your tests.
+    uses: getappmap/analyze-action/.github/workflows/appmap-analysis.yml@v1
+    permissions:
+      actions: read
+      contents: read
+      checks: write
+      pull-requests: write
