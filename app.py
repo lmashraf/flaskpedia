@@ -18,7 +18,7 @@ def about():
             return render_template("about.html")
 
 # Search
-@app.route('search', methods=['POST', 'GET'])
+@app.route('/search', methods=['POST', 'GET'])
 def search():
     if request.method == 'POST':
         keyword = request.form.get('search')
