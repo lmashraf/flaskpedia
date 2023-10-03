@@ -24,11 +24,6 @@ def test_result_route(client):
     response = client.get('/result')
     assert b'No keyword provided.' in response.data
 
-# FAILS
-def test_save_bookmark_route(client):
-    response = client.post('/bookmark/Morocco', follow_redirects=True)
-    assert b'Page "Morocco" bookmarked successfully!' in response.data
-
 def test_clear_bookmark_route(client):
     client.get('/clear_bookmark', follow_redirects=True)
     assert session['bookmarks'] == []

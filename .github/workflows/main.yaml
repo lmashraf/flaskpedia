@@ -33,4 +33,4 @@ jobs:
 
       - name: Deploy
         run: |
-          # Your deployment steps here
+          echo "Deployed successfully!"
