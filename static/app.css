@@ -1,0 +1,180 @@
+/* Reset some default styles */
+html, body, h1, h2, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply font */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header Styling */
+.navbar {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+    position: relative;
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-list li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-list li:last-child {
+    margin-right: 0;
+}
+
+.nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+    color: #0056b3;
+}
+
+/* Adjust the container for the page */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Page header */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Page summary */
+.summary {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Read More link */
+.read-more {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.read-more a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Style the Bookmarks */
+.pages-bookmark {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+/* Bookmarks list */
+.list-bookmark {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Each bookmarked item */
+.item-bookmark {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+}
+
+/* Bookmarked links */
+.link-bookmark {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Common button styles */
+.button-common {
+    display: block;
+    margin: 20px auto;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button-common:hover {
+    opacity: 0.8;
+    background-color: #0056b3;
+}
+
+/* Remove button */
+.button-remove {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the clear button */
+.button-clear {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect for Remove and Clear buttons */
+.button-remove:hover, .button-clear:hover {
+    opacity: 0.8;
+}
+
+/* Style the back link */
+.back-link {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Error message */
+.error-message {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.error-message h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6b6b;
+}
