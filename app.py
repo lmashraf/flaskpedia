@@ -50,19 +50,31 @@ def get_page(keyword):
     return page
 
 # Bookmark
-@app.route('/bookmarked')
-def bookmarked_pages():
-    bookmarked_pages = session.get('bookmarks', [])
-    return render_template('bookmarks.html', bookmarked_pages=bookmarked_pages)
+@app.route('/bookmark')
+def bookmarks():
+    bookmarks = session.get('bookmarks', [])
+    return render_template('bookmarks.html', bookmarks=bookmarks)
+
+@app.route('/bookmark/<page_title>', methods=['POST'])
+def save_bookmark(page_title):
+    try:
+        page = wikipedia.page(page_title)
+        bookmarks = session.get('bookmarks', [])
+        bookmarks.append({'title': page.title, 'url': page.url})
+        session['bookmarks'] = bookmarks
+        flash(f'Page "{page.title}" bookmarked successfully!', 'success')
+    except wikipedia.exceptions.PageError:
+        flash('Page not found!', 'error')
+    return redirect(url_for('result'))
 
 @app.route('/clear_bookmark')
-def clear_saved():
+def clear_bookmark():
     session['bookmarks'] = []
     flash('Bookmarks cleared!', 'success')
     return redirect(url_for('bookmarks'))
 
 @app.route('/remove_bookmark/<page_title>', methods=['POST'])
-def delete_bookmark(page_title):
+def remove_bookmark(page_title):
     bookmarks = session.get('bookmarks', [])
     for page in bookmarks:
         if page['title'] == page_title:
