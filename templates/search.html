@@ -1,15 +1,15 @@
 {% extends "core.html" %}
 {% block title %}Search Wikipedia{% endblock %}
 {% block content %}
-<div class="container">
-    <h1>Search Wikipedia</h1>
-    <form method="post" action="">
-        <div class="form-group">
-            <input type="text" id="search" name="search" class="form-control" placeholder="Enter a keyword">
-        </div>
-        <div class="form-group">
-            <button type="submit" id="submit" class=".button-common">Search</button>
-        </div>
-    </form>
+<div class="header">
+    <h2>Search Wikipedia</h2>
 </div>
+<form method="post" action="">
+    <div class="form-group">
+        <input type="text" id="search" name="search" class="form-control" placeholder="Enter a keyword">
+    </div>
+    <div class="form-group">
+        <button type="submit" id="submit" class="button-common">Search</button>
+    </div>
+</form>
 {% endblock %}
