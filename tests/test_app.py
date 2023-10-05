@@ -29,3 +29,6 @@ def test_clear_bookmark_route(client):
     assert session['bookmarks'] == []
 
 
+def test_fail_clear_bookmark_route(client):
+    client.get('/clear_bookmark', follow_redirects=True)
+    assert session['bookmarksss'] == []
