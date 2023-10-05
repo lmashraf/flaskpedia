@@ -1,0 +1,6 @@
+name: install-appmap-action
+ordering: chronological
+packages:
+  - path: .
+language: python
+appmap_dir: tmp/appmap
